@@ -1,0 +1,1 @@
+EL programa se ejecuta con la consola
