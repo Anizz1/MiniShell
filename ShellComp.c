@@ -19,13 +19,18 @@
 #define BUFFER_SIZE 50 
 #define MAX_HISTORY 50 /* Máximo número de comandos en el historial */
 
+//------------DECLARACIONES-----------------
 char buffer[BUFFER_SIZE];
 char history[MAX_HISTORY][MAX_LINE]; /* Arreglo de almacenamiento del historial */
 int history_index = 0; /* Índice de seguimiento del historial */
 int total_commands = 0; /* Total de comandos ingresados */
 
+
+
+//------------FUNCIONES UTILIZADAS EN EL PROGRAMA -----------------
+
+
 /* Función handle_SIGINT */
- //ignorar el SIGINT en el proceso hijo 
 void handle_SIGINT() {
     write(STDOUT_FILENO, buffer, strlen(buffer));
     int start = (total_commands < HISTORY_COUNT) ? 0 : total_commands - HISTORY_COUNT;
@@ -112,7 +117,7 @@ int main(void) {
     
     // Estructura de controlador de sigacción (señal)
     struct sigaction handler;
-    handler.sa_handler = SIG_IGN;
+    handler.sa_handler = SIG_IGN; //ignorar el SIGINT en el proceso hijo 
     //handler.sa_handler = handle_SIGINT; 
     //author: Anizz1
     sigemptyset(&handler.sa_mask);
@@ -136,7 +141,7 @@ int main(void) {
             //ignorar el SIGINT en el proceso hijo 
 
             struct sigaction child_handler; 
-            child_handler.sa_handler = SIG_IGN; 
+            child_handler.sa_handler = SIG_IGN; //ignorar el SIGINT en el proceso hijo 
             sigemptyset(&child_handler.sa_mask); 
             child_handler.sa_flags = 0; 
             sigaction(SIGINT, &child_handler, NULL);
