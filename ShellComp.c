@@ -1,7 +1,11 @@
 /*
+ *
  * @author: Anizz Carrillo Alvarado
- * Es una mini_consola en lenguaje C, que cuenta los comandos 
- * ingresados en la mini_terminal.
+ * ProgramTitle: MiniShell UNIX
+ * Description:
+ * Es una mini_consola en lenguaje C,
+ * que va contando los comandos ingresados 
+ * y te imprime los ultimos 10
  * 
 */
 
